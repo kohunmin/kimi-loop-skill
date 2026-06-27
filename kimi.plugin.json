@@ -1,17 +1,13 @@
 {
   "name": "kimi-loop-skill",
   "version": "1.0.0",
-  "description": "Plugin package that installs the /loop skill for Kimi Code CLI",
-  "tools": [
-    {
-      "name": "install_loop_skill",
-      "description": "Install the /loop skill into ~/.config/agents/skills/loop",
-      "command": ["bash", "scripts/install.sh"],
-      "parameters": {
-        "type": "object",
-        "properties": {},
-        "required": []
-      }
-    }
-  ]
+  "description": "Run prompts repeatedly on a fixed schedule with /loop",
+  "skills": "./skills/",
+  "sessionStart": {
+    "skill": "loop"
+  },
+  "interface": {
+    "displayName": "Loop",
+    "shortDescription": "Run prompts repeatedly on a fixed schedule"
+  }
 }

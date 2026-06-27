@@ -1,32 +1,22 @@
 # kimi-loop-skill
 
-Kimi Code CLI용 `/loop` skill plugin 패키지입니다.
+Kimi Code CLI용 `/loop` skill plugin입니다.
 
 원본 [Qwen Code `loop` 스킬](https://github.com/QwenLM/qwen-code)을 참고하여 작성했으며, Kimi Code CLI 환경에 맞게 `LoopWakeup`을 제외하고 `CronCreate`/`CronList`/`CronDelete`만 사용하도록 조정했습니다.
 
 ## 설치
 
-### 1. Plugin으로 설치 (권장)
-
 ```bash
 kimi plugin install https://github.com/kohunmin/kimi-loop-skill.git
 ```
 
-### 2. Skill 파일 설치
-
-plugin 설치 후 Kimi Code CLI에서 다음 tool을 실행하면 skill이 `~/.config/agents/skills/loop/`에 복사됩니다.
+또는 Kimi Code CLI 낲부에서:
 
 ```text
-/install_loop_skill
+/plugins
 ```
 
-또는 직접 복사할 수도 있습니다.
-
-```bash
-mkdir -p ~/.config/agents/skills/loop
-curl -L https://raw.githubusercontent.com/kohunmin/kimi-loop-skill/main/skills/loop/SKILL.md \
-  -o ~/.config/agents/skills/loop/SKILL.md
-```
+Marketplace에서 `kimi-loop-skill`을 찾아 설치한 후 `/reload`를 실행합니다.
 
 ## 사용법
 
@@ -41,17 +31,15 @@ curl -L https://raw.githubusercontent.com/kohunmin/kimi-loop-skill/main/skills/l
 
 ```text
 kimi-loop-skill/
-├── plugin.json           # Plugin manifest
-├── scripts/
-│   └── install.sh        # Skill installer tool
-├── skills/loop/
-│   ├── SKILL.md          # Skill definition
-│   └── SKILL.test.ts     # Structure verification test
+├── kimi.plugin.json      # Kimi Code CLI plugin manifest
+├── skills/
+│   └── loop/
+│       ├── SKILL.md      # Skill definition
+│       └── SKILL.test.ts # Structure verification test
 └── README.md
 ```
 
-## 주의
+## 참고
 
-- `/loop`는 Kimi Code CLI 낹부의 cron 도구를 사용하므로 본질적으로 **skill**입니다.
-- 이 plugin 패키지는 skill을 설치하기 위한 wrapper 역할을 합니다.
-- plugin 설치 후 반드시 `install_loop_skill` tool을 실행하거나 skill 파일을 수동 복사해야 `/loop`가 동작합니다.
+- `/loop`은 Kimi Code CLI 납부의 `CronCreate`/`CronList`/`CronDelete`를 사용합니다.
+- 이 패키지는 Kimi Code CLI plugin 형식(`kimi.plugin.json`)으로 skill을 배포합니다.
