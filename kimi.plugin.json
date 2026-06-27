@@ -1,0 +1,17 @@
+{
+  "name": "kimi-loop-skill",
+  "version": "1.0.0",
+  "description": "Plugin package that installs the /loop skill for Kimi Code CLI",
+  "tools": [
+    {
+      "name": "install_loop_skill",
+      "description": "Install the /loop skill into ~/.config/agents/skills/loop",
+      "command": ["bash", "scripts/install.sh"],
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}
